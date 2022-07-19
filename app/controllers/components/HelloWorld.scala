@@ -9,8 +9,8 @@ object HelloWorld {
   sealed trait Command {
     def replyTo: ActorRef[_]
   }
-  case class SayHello(name: String)(val replyTo: ActorRef[String]) extends Command
-  case class Echo(string: String)(val replyTo: ActorRef[String]) extends Command
+  final case class SayHello(name: String)(val replyTo: ActorRef[String]) extends Command
+  final case class Echo(string: String)(val replyTo: ActorRef[String]) extends Command
 
   def behavior: Behavior[HelloWorld.Command] =
     Behaviors.receiveMessage {
