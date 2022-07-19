@@ -11,7 +11,7 @@ import javax.inject.Singleton
  *   play.modules.enabled += "controllers.components.AppModule"
  */
 @Singleton
-class AppModule extends AbstractModule with AkkaGuiceSupport {
+final class AppModule extends AbstractModule with AkkaGuiceSupport {
 
   override def configure(): Unit = {
     bindTypedActor(HelloWorld.behavior, "hello-world")
