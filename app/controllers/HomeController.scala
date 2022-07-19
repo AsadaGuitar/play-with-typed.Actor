@@ -5,7 +5,6 @@ import akka.actor.typed.scaladsl.AskPattern._
 import akka.actor.typed.scaladsl.adapter.ClassicActorSystemOps
 import akka.actor.{ActorSystem => ClassicSystem}
 import akka.util.Timeout
-
 import controllers.components.HelloWorld
 
 import javax.inject._
@@ -23,7 +22,7 @@ final class HomeController @Inject()(cc: ControllerComponents, classicSystem: Cl
   implicit val ec: ExecutionContextExecutor = system.executionContext
   implicit val timeout: Timeout = 3.seconds
 
-  def index() = Action.async { implicit request: Request[AnyContent] =>
+  def index() = Action.async {
     helloWorld
       .ask(HelloWorld.SayHello("Martin Odersky"))
       .map { msg =>
