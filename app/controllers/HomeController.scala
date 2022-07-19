@@ -2,14 +2,14 @@ package controllers
 
 import akka.actor.typed.ActorRef
 import akka.actor.typed.scaladsl.AskPattern._
-import controllers.components.{HelloWorld, TypedActorConfigurations}
+import controllers.components.{HelloWorld, TypedConfigurations}
 
 import javax.inject._
 import play.api.mvc._
 
 
 @Singleton
-final class HomeController @Inject()(cc: ControllerComponents, actorConf: TypedActorConfigurations, helloWorld: ActorRef[HelloWorld.Command])
+final class HomeController @Inject()(cc: ControllerComponents, actorConf: TypedConfigurations, helloWorld: ActorRef[HelloWorld.Command])
   extends AbstractController(cc) {
   import actorConf._
 

@@ -8,6 +8,6 @@ class AppModule extends AbstractModule with AkkaGuiceSupport {
 
   override def configure(): Unit = {
     bindTypedActor(HelloWorld.behavior, "hello-world")
-    bind(classOf[TypedActorConfigurations]).asEagerSingleton()
+    bind(classOf[TypedConfigurations]).asEagerSingleton()
   }
 }

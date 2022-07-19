@@ -10,7 +10,7 @@ import scala.concurrent.ExecutionContextExecutor
 import scala.concurrent.duration.DurationInt
 
 @Singleton
-final class TypedActorConfigurations @Inject()(classicalSystem: ClassicalSystem) {
+final class TypedConfigurations @Inject()(classicalSystem: ClassicalSystem) {
 
   implicit val system: ActorSystem[_] = classicalSystem.toTyped
   implicit val ec: ExecutionContextExecutor = system.executionContext
